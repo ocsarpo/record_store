@@ -15,6 +15,11 @@ export default new Router({
       path: '/signup',
       name: 'Signup',
       component: () => import('../components/Signup.vue')
+    },
+    {
+      path: '/artists',
+      name: 'Artists',
+      component: () => import('../components/artists/Artists.vue')
     }
   ]
 })
