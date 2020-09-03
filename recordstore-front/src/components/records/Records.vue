@@ -103,7 +103,7 @@ export default {
     }
   },
   created () {
-    if (!localStorage.signedId) {
+    if (!localStorage.signedIn) {
       this.$router.replace('/')
     } else {
       this.$http.secured.get('/api/v1/records')

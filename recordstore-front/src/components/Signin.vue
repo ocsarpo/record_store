@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     signin () {
-      this.$http.plain.post('/signin', { email: this.email, pasword: this.pasword })
+      this.$http.plain.post('/signin', { email: this.email, password: this.password })
         .then(response => this.signinSuccessful(response))
         .catch(error => this.signinFailed(error))
     },

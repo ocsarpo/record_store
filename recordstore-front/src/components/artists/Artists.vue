@@ -1,9 +1,9 @@
 <template>
     <div class="max-w-md m-auto py-10">
-        <div class="text-red" v-if="error">{{error}}</div>
+        <div class="text-red" v-if="error">{{ error }}</div>
         <h3 class="font-mono font-regular text-3xl mb-4">Add a new artist</h3>
 
-        <form @submit.prevent="addArtists">
+        <form @submit.prevent="addArtist">
             <div class="mb-6">
                 <input type="text" class="input" autofocus autocomplete="off" placeholder="Type an artist name"
                 v-model="newArtist.name">
@@ -83,7 +83,7 @@ export default {
     removeArtist (artist) {
       this.$http.secured.delete(`/api/v1/artists/${artist.id}`)
         .then(response => {
-          this.artist.splice(this.artist.indeexOf(artist), 1)
+          this.artists.splice(this.artists.indexOf(artist), 1)
         })
         .catch(error => this.setError(error, 'Cannot delete artist'))
     },
@@ -92,7 +92,7 @@ export default {
     },
     updateArtist (artist) {
       this.editedArtist = ''
-      this.$http.secured.patch(`/api/v1/artist/${artist.id}`, {artist: { title: artist.name }})
+      this.$http.secured.patch(`/api/v1/artists/${artist.id}`, {artist: { name: artist.name }})
         .catch(error => this.setError(error, 'Cannot update artist'))
     }
   }
