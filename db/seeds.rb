@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+artists = %w(AC/DC Jimi\ Hendrix The\ Dorrs Led\ Zeppelin Bad\ Company Alice\ in\ Chains)
+
+artists.each do |ar|
+    Artist.create!(name: ar)
+end
