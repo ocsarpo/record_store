@@ -52,7 +52,7 @@ export default {
       artists: [],
       newArtist: [],
       error: '',
-      dEditArtist: ''
+      editedArtist: ''
     }
   },
   created () {
@@ -88,10 +88,10 @@ export default {
         .catch(error => this.setError(error, 'Cannot delete artist'))
     },
     editArtist (artist) {
-      this.dEditArtist = artist
+      this.editedArtist = artist
     },
     updateArtist (artist) {
-      this.dEditArtist = ''
+      this.editedArtist = ''
       this.$http.secured.patch(`/api/v1/artist/${artist.id}`, {artist: { title: artist.name }})
         .catch(error => this.setError(error, 'Cannot update artist'))
     }

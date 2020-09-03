@@ -20,6 +20,11 @@ export default new Router({
       path: '/artists',
       name: 'Artists',
       component: () => import('../components/artists/Artists.vue')
+    },
+    {
+      path: '/records',
+      name: 'Record',
+      component: () => import('../components/records/Records.vue')
     }
   ]
 })
